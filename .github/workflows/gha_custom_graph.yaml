@@ -1,0 +1,22 @@
+name: "Custom Graph to show understanding"
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: "Build the app"
+        run: echo "Building the app..."
+  job2:
+    runs-on: ubuntu-24.04
+    needs: job1
+    steps:
+      - name: "Running the app"
+        run: echo "Running the app..."
+  job3:
+    runs-on: ubuntu-24.04
+    needs: [job2, job1]
+    steps:
+      - name: "Analyzing the app"
+        run: echo "Analyzing the app..."
